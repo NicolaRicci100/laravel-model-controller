@@ -1,22 +1,18 @@
 @extends('layouts.main')
 @section('main')
-    @foreach ($movies as $movie)
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ $movie->title }}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
+        @foreach ($movies as $movie)
+            <div class="card col m-2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $movie->title }}</h5>
+                    <p class="card-text">Original Title: <strong>{{ $movie->original_title }}</strong></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Country: <strong>{{ $movie->nationality }}</strong></li>
+                    <li class="list-group-item">Release date: <strong>{{ $movie->date }}</strong></li>
+                    <li class="list-group-item">Critics: <strong>{{ $movie->vote }}</strong></li>
+                </ul>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-            <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 @endsection
